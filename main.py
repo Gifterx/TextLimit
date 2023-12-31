@@ -28,10 +28,6 @@ def clean_blue_text_must_click(update: Update, context: CallbackContext):
     users = update.effective_user
     if not message.text:
         return
-    chat_admins = dispatcher.bot.getChatAdministrators(chat.id)
-    admin_list = [x.user.id for x in chat_admins]
-    if users.id in admin_list:
-       return
     if chat.get_member(bot.id).can_delete_messages:
        if len(str(message.text)) > 200:
            try:
